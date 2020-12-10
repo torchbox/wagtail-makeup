@@ -1,0 +1,29 @@
+repos:
+  - repo: https://github.com/python/black
+    rev: 19.10b0
+    hooks:
+      - id: black
+        language_version: python3.8
+        exclude: migrations/
+  - repo: https://github.com/timothycrosley/isort
+    rev: 5.3.0
+    hooks:
+      - id: isort
+        language_version: python3.8
+  - repo: https://gitlab.com/pycqa/flake8
+    # flake8 config is in setup.cfg
+    rev: 3.8.3
+    hooks:
+      - id: flake8
+        language_version: python3.8
+  - repo: https://github.com/prettier/prettier
+    rev: 2.0.5
+    hooks:
+      - id: prettier
+  - repo: https://github.com/awebdeveloper/pre-commit-stylelint
+    rev: c4c991cd38b0218735858716b09924f8b20e3812
+    hooks:
+      - id: stylelint
+        additional_dependencies:
+          - stylelint@10.1.0
+          - stylelint-config-torchbox@0.5.0
