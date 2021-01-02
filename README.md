@@ -13,11 +13,17 @@ Sign up for an Unsplash api key and add this to your settings:
 
 ```
 WAGTAIL_MAKEUP_SETTINGS = {
-    "UNSPLASH_CLIENT_ID": "your api id here",
+    "UNSPLASH_CLIENT_ID": "your api id here - access key",
 }
 ```
 
 ## Using
+
+You probably don't want this in your production settings, so add the following to you local.py settings:
+
+```
+INSTALLED_APPS.append('wagtailmakeup')
+```
 
 Wagtail Makeup works by providing a new management command:
 
