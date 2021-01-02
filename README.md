@@ -5,8 +5,7 @@ Use Wagtail Makeup ;)
 
 ## Installation
 
-Install the plugin by cloning or (soon) with pypi, and add it to your installed apps.
-
+`pip install wagtailmakeup`
 
 ## Configuration
 
