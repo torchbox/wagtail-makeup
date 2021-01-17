@@ -1,5 +1,7 @@
 # Wagtail Makeup
 
+[![codecov](https://codecov.io/gh/kevinhowbrook/wagtail-makeup/branch/main/graph/badge.svg?token=A4H7PFEL9J)](https://codecov.io/gh/kevinhowbrook/wagtail-makeup)
+
 Tired of having no images locally when you need them? Don't want to fill your computer up with images?
 Use Wagtail Makeup ;)
 
@@ -12,10 +14,14 @@ Use Wagtail Makeup ;)
 Sign up for an Unsplash api key and add this to your settings:
 
 ```
-WAGTAIL_MAKEUP_SETTINGS = {
-    "UNSPLASH_CLIENT_ID": "your api id here - access key",
+# settings.py
+WAGTAIL_UNSPLASH = {
+    "CLIENT_ID": "",
+    "CLIENT_SECRET": ""
 }
 ```
+
+The API is rate limited to 50 request/hour... you can apply for a [higher rate limit](https://help.unsplash.com/en/articles/3887917-when-should-i-apply-for-a-higher-rate-limit).
 
 ## Using
 
@@ -28,7 +34,7 @@ INSTALLED_APPS.append('wagtailmakeup')
 Wagtail Makeup works by providing a new management command:
 
 ```
-python manage.py make_up [keyword] [amount of images]
+python manage.py make_up [search query] [amount of images]
 ```
 
 So you want to replace all your broken images on your site with dogs (who wouldn't)

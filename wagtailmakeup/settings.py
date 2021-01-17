@@ -5,7 +5,7 @@ DEFAULTS = {}
 
 class WagtailMakeUpSettings:
     def __getattr__(self, attr):
-        django_settings = getattr(settings, "WAGTAIL_MAKEUP_SETTINGS", {})
+        django_settings = getattr(settings, "WAGTAIL_UNSPLASH", {})
 
         try:
             return django_settings[attr]
