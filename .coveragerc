@@ -1,6 +1,7 @@
 [run]
-include = wagtailmakeup/*
 omit = *migrations*, *tests*
+
+source = wagtailmakeup
 
 [html]
 directory = coverage_html_report
