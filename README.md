@@ -1,5 +1,7 @@
 # Wagtail Makeup
 
+[![codecov](https://codecov.io/gh/kevinhowbrook/wagtail-makeup/branch/main/graph/badge.svg?token=A4H7PFEL9J)](https://codecov.io/gh/kevinhowbrook/wagtail-makeup)
+
 Tired of having no images locally when you need them? Don't want to fill your computer up with images?
 Use Wagtail Makeup ;)
 
