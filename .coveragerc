@@ -5,3 +5,6 @@ source = wagtailmakeup
 
 [html]
 directory = coverage_html_report
+
+[report]
+show_missing = True
