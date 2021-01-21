@@ -1,6 +1,6 @@
 # Wagtail Makeup
 
-![tests](https://github.com/kevinhowbrook/wagtail-makeup/.github/workflows/main.yml/badge.svg)
+![tests](https://github.com/kevinhowbrook/wagtail-makeup/blob/.github/workflows/main.yml/badge.svg)
 ![example workflow file path](https://github.com/kevinhowbrook/wagtail-makeup/.github/workflows/main.yml/badge.svg)
 [![codecov](https://codecov.io/gh/kevinhowbrook/wagtail-makeup/branch/main/graph/badge.svg?token=A4H7PFEL9J)](https://codecov.io/gh/kevinhowbrook/wagtail-makeup)
 
