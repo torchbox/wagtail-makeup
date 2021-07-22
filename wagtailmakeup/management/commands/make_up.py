@@ -2,6 +2,7 @@ import random
 
 import requests
 from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured
 from django.core.management.base import BaseCommand
 from wagtail.images import get_image_model
 
@@ -35,11 +36,7 @@ class Command(BaseCommand):
         parser.add_argument("count", nargs="+", type=int)
 
     def save_image(self, unsplash_photo):
-        """Saves an image from unsplash
-
-        Args:
-            unsplash_photo (st): unsplash.models.Photo
-        """
+        """Saves an image from unsplash"""
         photo = api.photo.get(unsplash_photo.id)
         url = photo.urls.raw
         # loop the images and save'em
@@ -74,8 +71,7 @@ class Command(BaseCommand):
             not wagtail_makeup_settings.CLIENT_ID
             or not wagtail_makeup_settings.CLIENT_SECRET
         ):
-            print("UNSPLASH API SETTINGS  MISSING")
-            return
+            raise ImproperlyConfigured('WAGTAIL_UNSPLASH SETTINGS MISSING')
 
         query = options.pop("query")
         count = options.pop("count")[0]
