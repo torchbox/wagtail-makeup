@@ -2,6 +2,8 @@
 
 ![tests](https://github.com/kevinhowbrook/wagtail-makeup/workflows/Tests/badge.svg)
 [![codecov](https://codecov.io/gh/kevinhowbrook/wagtail-makeup/branch/main/graph/badge.svg?token=A4H7PFEL9J)](https://codecov.io/gh/kevinhowbrook/wagtail-makeup)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/kevinhowbrook/wagtail-makeup.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/kevinhowbrook/wagtail-makeup/alerts/)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/kevinhowbrook/wagtail-makeup.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/kevinhowbrook/wagtail-makeup/context:python)
 
 Tired of having no images locally when you need them? Don't want to fill your computer up with images?
 Use Wagtail Makeup ;)
