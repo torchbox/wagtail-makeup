@@ -10,7 +10,9 @@ Use Wagtail Makeup ;)
 
 ## Installation
 
-`pip install wagtailmakeup`
+Wagail makeup depends on python unsplash:
+
+`pip install python-unsplash wagtailmakeup`
 
 ## Configuration
 
