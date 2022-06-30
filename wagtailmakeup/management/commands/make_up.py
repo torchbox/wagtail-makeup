@@ -1,9 +1,12 @@
+import os
 import random
+import shutil
 
 import requests
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 from django.core.management.base import BaseCommand
+from django.db.utils import IntegrityError
 from wagtail.images import get_image_model
 
 from ...api import api
@@ -63,15 +66,32 @@ class Command(BaseCommand):
         """
         # random selection from photos
         photo = random.choice(photos).id
-        image.file = f"{MEDIA_ROOT}/unsplash-{photo}"
-        image.save()
+
+        try:
+            image.file = f"{MEDIA_ROOT}/unsplash-{photo}"
+            image.save()
+        except IntegrityError as e:
+            # probably unique file names are needed so re-save the file and try again
+            # use the image object id for a name suffix
+            print("Duplicate filename, copying the file and renaming")
+            shutil.copy(
+                f"{MEDIA_ROOT}/unsplash-{photo}",
+                f"{MEDIA_ROOT}/unsplash-{photo}-{image.id}",
+            )
+            image.file = f"{MEDIA_ROOT}/unsplash-{photo}-{image.id}"
+            try:
+                print("Saving image with new unique file")
+                image.save()
+            except Exception as e:
+                print("Something else bad happened...")
+                print(e)
 
     def handle(self, *args, **options):
         if (
             not wagtail_makeup_settings.CLIENT_ID
             or not wagtail_makeup_settings.CLIENT_SECRET
         ):
-            raise ImproperlyConfigured('WAGTAIL_UNSPLASH SETTINGS MISSING')
+            raise ImproperlyConfigured("WAGTAIL_UNSPLASH SETTINGS MISSING")
 
         query = options.pop("query")
         count = options.pop("count")[0]
@@ -84,7 +104,9 @@ class Command(BaseCommand):
             self.save_image(photo)
 
         # Update all images
-        for image in Image.objects.all():
+        all_images = Image.objects.all()
+        for i, image in enumerate(all_images):
+            print(f"Updating image {i} of {all_images.count()}")
             self.update_wagtail_image(image, photos)
 
         # Finally, delete the existing image renditions
