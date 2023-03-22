@@ -71,7 +71,7 @@ class Command(BaseCommand):
             not wagtail_makeup_settings.CLIENT_ID
             or not wagtail_makeup_settings.CLIENT_SECRET
         ):
-            raise ImproperlyConfigured('WAGTAIL_UNSPLASH SETTINGS MISSING')
+            raise ImproperlyConfigured("WAGTAIL_UNSPLASH SETTINGS MISSING")
 
         query = options.pop("query")
         count = options.pop("count")[0]
