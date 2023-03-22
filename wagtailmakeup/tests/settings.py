@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'wagtail.documents',
     'wagtail.images',
     'wagtail.admin',
-    'wagtail.core',
+    'wagtail',
 
     'taggit',
 
@@ -74,3 +74,5 @@ TEMPLATES = [
 ]
 WAGTAIL_SITE_NAME = 'llama-savers'
 USE_TZ = True
+
+WAGTAILADMIN_BASE_URL = 'http://localhost:8000/admin/'

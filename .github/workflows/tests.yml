@@ -16,28 +16,37 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ['3.7', '3.8', '3.9', '3.10']
-        django-version: ['3.2', '4.0']
-        wagtail-version: ['2.15', '2.16', '3.0']
+        python-version: ['3.7', '3.8', '3.9', '3.10', '3.11']
+        django-version: ['3.2', '4.0', '4.1']
+        wagtail-version: ['4.1', '4.2']
+        exclude:
+          - python-version: '3.11'
+            django-version: '3.2'
+          - python-version: '3.11'
+            django-version: '4.0'
+          - python-version: '3.7'
+            django-version: '4.0'
+          - python-version: '3.7'
+            django-version: '4.1'
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
-      with:
-        python-version: ${{ matrix.python-version }}
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        python -m pip install --upgrade tox tox-gh-actions coverage codecov
-    - name: Tox tests
-      run: tox -v
-      env:
-        DJANGO: ${{ matrix.django-version }}
-        WAGTAIL: ${{ matrix.wagtail-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --upgrade tox tox-gh-actions coverage codecov
+      - name: Tox tests
+        run: tox -v
+        env:
+          DJANGO: ${{ matrix.django-version }}
+          WAGTAIL: ${{ matrix.wagtail-version }}
 
-    - name: Upload coverage
-      uses: codecov/codecov-action@v1
-      with:
-        name: Python ${{ matrix.python-version }}
+      - name: Upload coverage
+        uses: codecov/codecov-action@v1
+        with:
+          name: Python ${{ matrix.python-version }}
