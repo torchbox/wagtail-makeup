@@ -18,7 +18,7 @@ testing_extras = [
 
 setup(
     name="wagtailmakeup",
-    version="1.0.0",
+    version="1.0.1",
     description="Wagtail Makeup",
     long_description=long_description,
     long_description_content_type="text/markdown",
