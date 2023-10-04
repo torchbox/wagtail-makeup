@@ -6,34 +6,21 @@ on:
   pull_request:
     branches: [main]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read # to fetch code (actions/checkout)
+
 jobs:
   build:
-    name: |
-      build (Python ${{ matrix.python-version }},
-      Django ${{ matrix.django-version }},
-      Wagtail ${{ matrix.wagtail-version }}),
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11"]
-        django-version: ["3.2", "4.1", "4.2"]
-        wagtail-version: ["4.1", "4.2", "5.0"]
-        exclude:
-          - python-version: "3.8"
-            django-version: "4.2"
-          - python-version: "3.9"
-            django-version: "4.2"
-          - python-version: "3.10"
-            django-version: "4.2"
-          - python-version: "3.11"
-            django-version: "3.2"
-          - python-version: "3.11"
-            wagtail-version: "4.1"
-          - python-version: "3.11"
-            wagtail-version: "4.2"
-          - django-version: "3.2"
-            wagtail-version: "5.0"
+        python: ["3.8", "3.9", "3.10", "3.11"]
+
     steps:
       - uses: actions/checkout@v3
 
