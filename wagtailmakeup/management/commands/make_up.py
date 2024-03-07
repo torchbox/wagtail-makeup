@@ -54,17 +54,14 @@ class Command(BaseCommand):
         # TODO, if there is no query support random images
         return api.photo.random(query=query, count=count)
 
-    def update_wagtail_image(self, image, photos):
-        """Replaces an image object with the an unsplash image
-
-        Args:
-            image (class): CustomImage objects
-            photos (class): unsplash.models.ResultSet of photos
+    def chunk_images(self, chunks):
         """
-        # random selection from photos
-        photo = random.choice(photos).id
-        image.file = f"{MEDIA_ROOT}/unsplash-{photo}"
-        image.save()
+        Split the images into `chunks` chunks, in a random order
+
+        Based on https://stackoverflow.com/a/14861842.
+        """
+        images = Image.objects.all().order_by('?')
+        return [images[i::chunks] for i in range(chunks)]
 
     def handle(self, *args, **options):
         if (
@@ -84,8 +81,8 @@ class Command(BaseCommand):
             self.save_image(photo)
 
         # Update all images
-        for image in Image.objects.all():
-            self.update_wagtail_image(image, photos)
+        for photo, images in zip(photos, self.chunk_images(len(photos))):
+            images.update(file=f"unsplash-{photo.id}")
 
         # Finally, delete the existing image renditions
         Image.get_rendition_model().objects.all().delete()
