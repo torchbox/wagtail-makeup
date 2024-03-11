@@ -18,7 +18,6 @@ INSTALLED_APPS = [
     "wagtail.contrib.routable_page",
     "wagtail.contrib.frontend_cache",
     "wagtail.contrib.settings",
-    "wagtail.contrib.modeladmin",
     "wagtail.contrib.table_block",
     "wagtail.contrib.forms",
     "wagtail.embeds",
@@ -72,3 +71,5 @@ WAGTAIL_SITE_NAME = "llama-savers"
 USE_TZ = True
 
 WAGTAILADMIN_BASE_URL = "http://localhost:8000/admin/"
+
+STATIC_URL = "/static/"
