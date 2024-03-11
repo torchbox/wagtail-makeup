@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## 1.1.0 (2024-03-11)
+
 - Add tests for Wagtail 5.1+
 - Drop tests for Wagtail 4.2 and 5.0 as they have reached EOL
 
