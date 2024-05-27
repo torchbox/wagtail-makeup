@@ -3,17 +3,17 @@ default_language_version:
   python: python3.12
 repos:
   - repo: https://github.com/python/black
-    rev: 23.1.0
+    rev: 24.4.2
     hooks:
       - id: black
         exclude: migrations/
   - repo: https://github.com/PyCQA/isort
-    rev: 5.12.0
+    rev: 5.13.2
     hooks:
       - id: isort
   - repo: https://github.com/pycqa/flake8
     # flake8 config is in setup.cfg
-    rev: 3.8.3
+    rev: 7.0.0
     hooks:
       - id: flake8
   - repo: https://github.com/pre-commit/mirrors-prettier
