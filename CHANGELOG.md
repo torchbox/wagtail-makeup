@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+- Add tests for Wagtail 6
+- Drop support for Django < 4.2
+
 ## 1.1.0 (2024-03-11)
 
 - Add tests for Wagtail 5.1+
