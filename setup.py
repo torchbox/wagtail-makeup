@@ -13,7 +13,7 @@ with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 testing_extras = [
-    "coverage>=4.5",
+    "coverage>=7.5.2",
 ]
 
 setup(
@@ -27,13 +27,12 @@ setup(
     license="MIT",
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
-    install_requires=["wagtail>=5.2", "python-unsplash>=1.1.0"],
+    install_requires=["wagtail>=5.2", "python-unsplash>=1.2.5"],
     extras_require={"testing": testing_extras},
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Environment :: Web Environment",
         "Framework :: Django",
-        "Framework :: Django :: 3.2",
         "Framework :: Django :: 4.2",
         "Framework :: Django :: 5.0",
         "Framework :: Wagtail",
