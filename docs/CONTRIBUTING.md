@@ -15,7 +15,7 @@ git clone https://github.com/torchbox/wagtail-makeup
 ```bash
 python3 -m venv venv
 source venv/bin/activate
-pip install -e ".[testing]"
+pip install -e ".[testing,development]"
 ```
 
 ### Pre-commit
