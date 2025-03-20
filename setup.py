@@ -16,6 +16,12 @@ testing_extras = [
     "coverage>=4.5",
 ]
 
+development_extras = [
+    "black==25.1.0",
+    "flake8==7.1.2",
+    "isort==6.0.1",
+]
+
 setup(
     name="wagtailmakeup",
     version="1.1.0",
@@ -28,14 +34,17 @@ setup(
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
     install_requires=["wagtail>=5.2", "python-unsplash>=1.1.0"],
-    extras_require={"testing": testing_extras},
+    extras_require={
+        "testing": testing_extras,
+        "development": development_extras,
+    },
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Environment :: Web Environment",
         "Framework :: Django",
-        "Framework :: Django :: 3.2",
         "Framework :: Django :: 4.2",
         "Framework :: Django :: 5.0",
+        "Framework :: Django :: 5.1",
         "Framework :: Wagtail",
         "Framework :: Wagtail :: 5",
         "Framework :: Wagtail :: 6",
