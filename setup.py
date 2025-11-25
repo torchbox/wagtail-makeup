@@ -17,9 +17,9 @@ testing_extras = [
 ]
 
 development_extras = [
-    "black==25.1.0",
-    "flake8==7.1.2",
-    "isort==6.0.1",
+    "black==25.11.0",
+    "flake8==7.3.0",
+    "isort==7.0.0",
 ]
 
 setup(
@@ -33,7 +33,7 @@ setup(
     license="MIT",
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
-    install_requires=["wagtail>=5.2", "python-unsplash>=1.1.0"],
+    install_requires=["wagtail>=6.3", "python-unsplash>=1.1.0"],
     extras_require={
         "testing": testing_extras,
         "development": development_extras,
@@ -46,7 +46,6 @@ setup(
         "Framework :: Django :: 5.1",
         "Framework :: Django :: 5.2",
         "Framework :: Wagtail",
-        "Framework :: Wagtail :: 5",
         "Framework :: Wagtail :: 6",
         "Framework :: Wagtail :: 7",
     ],
