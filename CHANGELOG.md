@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+Wagtail 7.4 LTS maintenance
+
+- Support matrix narrowed to Wagtail 7.0–7.4, Django 5.2–6.0, Python 3.10–3.14
+- Tox testing add Wagtail 7.2, 7.3 and 7.4 and Django 6.0
+- Tox testing add Python 3.14
+- Tox testing drop Wagtail 5.2, 6.3 and 6.4 (EOL), Django 4.2 and 5.1 (EOL)
+- Tox testing drop Python 3.9 (EOL)
+- Fix `wagtail.core.middleware.SiteMiddleware` import in test settings (renamed in Wagtail 5)
+- Consolidate `setup.cfg` so `setup.py` is the single source of packaging metadata
+- Release workflow switched from `python setup.py` to `python -m build`
+
 Wagtail 7.0 maintenance
 
 - Tox testing add Wagtail 7.0, 7.1 and Django 5.2
