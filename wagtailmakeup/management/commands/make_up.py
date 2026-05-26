@@ -40,10 +40,8 @@ class Command(BaseCommand):
         photo = api.photo.get(unsplash_photo.id)
         url = photo.urls.raw
         # loop the images and save'em
-        print(
-            f"Downloading image {photo.id} > \
-            {MEDIA_ROOT}/unsplash-{photo.id}"
-        )
+        print(f"Downloading image {photo.id} > \
+            {MEDIA_ROOT}/unsplash-{photo.id}")
         r = requests.get(url, stream=True)
         if r.status_code == 200:
             with open(MEDIA_ROOT + f"/unsplash-{photo.id}", "wb") as f:
